@@ -101,8 +101,15 @@ public class Task3 {
         int cnt = 1;
         for (int i = 1; i < input.length(); i++) {
             char cur = input.charAt(i);
-
+            if (cur == pred)
+                cnt++;
+            else {
+                st.append(pred).append(cnt);
+                cnt = 1;
+                pred = cur;
+            }
         }
+        st.append(pred).append(cnt);
 
         return st.toString();
     }
@@ -213,10 +220,10 @@ public class Task3 {
         if (prefix == null) return 0;
 
         int count = 0;
-        for (int i = 0; i < inputStrings.length; i++) {
+        for (String str : inputStrings) {
             boolean havePref = true;
             for (int j = 0; j < prefix.length(); j++) {
-                if (inputStrings[i].charAt(j) != prefix.charAt(j)) {
+                if (str.charAt(j) != prefix.charAt(j)) {
                     havePref = false;
                     break;
                 }
