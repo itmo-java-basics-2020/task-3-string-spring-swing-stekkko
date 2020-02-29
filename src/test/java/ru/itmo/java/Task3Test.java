@@ -14,6 +14,7 @@ public class Task3Test {
         Assert.assertArrayEquals(new int[]{5, 1, 2, 3, 4}, instance.getShiftedArray(new int[]{1, 2, 3, 4, 5}));
         Assert.assertArrayEquals(new int[]{}, instance.getShiftedArray(new int[]{}));
         Assert.assertArrayEquals(new int[]{}, instance.getShiftedArray(null));
+        Assert.assertArrayEquals(new int[]{1}, instance.getShiftedArray(new int[]{1}));
         Assert.assertArrayEquals(new int[]{0, 0, 1, 0, 0}, instance.getShiftedArray(new int[]{0, 1, 0, 0, 0}));
         Assert.assertArrayEquals(new int[]{5, 5, 5, 4, 4}, instance.getShiftedArray(new int[]{5, 5, 4, 4, 5}));
     }
@@ -27,6 +28,14 @@ public class Task3Test {
         Assert.assertEquals(20, instance.getMaxProduct(new int[]{4, 2, 3, 4, 5}));
         Assert.assertEquals(20, instance.getMaxProduct(new int[]{5, 1, 3, 4, 1}));
         Assert.assertEquals(9, instance.getMaxProduct(new int[]{3, 1, 3, 3, 1}));
+        Assert.assertEquals(0, instance.getMaxProduct(new int[]{0, 0}));
+        Assert.assertEquals(0, instance.getMaxProduct(new int[]{0, 1}));
+        Assert.assertEquals(0, instance.getMaxProduct(new int[]{0, -1}));
+        Assert.assertEquals(1, instance.getMaxProduct(new int[]{-1, -1}));
+        Assert.assertEquals(20, instance.getMaxProduct(new int[]{-1, -2, -3, -4, -5}));
+        Assert.assertEquals(0, instance.getMaxProduct(new int[]{0, 0, 5, 0, 0}));
+        Assert.assertEquals(96, instance.getMaxProduct(new int[]{0, 0, 5, 4, -8, -12}));
+        Assert.assertEquals(20, instance.getMaxProduct(new int[]{0, 0, 5, 4, -8, -2}));
     }
 
     @Test
@@ -48,6 +57,8 @@ public class Task3Test {
         Assert.assertTrue(instance.isPalindrome("акка"));
         Assert.assertFalse(instance.isPalindrome("итмо"));
         Assert.assertFalse(instance.isPalindrome("тапок"));
+        Assert.assertTrue(instance.isPalindrome("шалаш"));
+        Assert.assertFalse(instance.isPalindrome("шалашовка"));
     }
 
     @Test
